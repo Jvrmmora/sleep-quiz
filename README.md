@@ -21,3 +21,8 @@ El sistema calcula automáticamente un **puntaje total** (de 0 a 30) y muestra u
 1. Descarga o clona este repositorio:
    ```bash
    git clone https://github.com/tuusuario/encuesta-higiene-sueno.git
+
+## ⚠️ Nota
+
+Esta encuesta tiene fines educativos y de concientización.
+No sustituye la evaluación ni las recomendaciones de un profesional de la salud del sueño.
