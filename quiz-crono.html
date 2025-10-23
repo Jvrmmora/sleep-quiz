@@ -1,0 +1,248 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Quiz: ¿Alondra o Búho?</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦉</text></svg>">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0;background:#0f172a;color:#f1f5f9}
+    .wrap{max-width:760px;margin:28px auto;padding:22px;background:#1e293b;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.3)}
+    h1{margin:0 0 6px;font-size:20px;color:#f8fafc}
+    h1 a{color:#0ea5a4;text-decoration:none;transition:color 0.2s}
+    h1 a:hover{color:#0d9488;text-decoration:underline}
+    .navbar{display:flex;justify-content:center;align-items:center;margin-bottom:20px;padding:12px 0;border-bottom:1px solid #334155}
+    .navbar h1{margin:0;font-size:18px;display:flex;align-items:center;gap:8px}
+    .navbar h1 a{color:#0ea5a4;text-decoration:none;padding:0;background:none;border:none;font-size:inherit;font-weight:inherit;transition:color 0.2s}
+    .navbar h1 a:hover{color:#0d9488;text-decoration:underline;background:none}
+    .fab{position:fixed;bottom:20px;left:20px;width:56px;height:56px;border-radius:50%;background:#0ea5a4;color:white;border:none;box-shadow:0 4px 12px rgba(14,165,164,0.4);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s;z-index:1000}
+    .fab:hover{background:#0d9488;transform:scale(1.1);box-shadow:0 6px 16px rgba(14,165,164,0.6)}
+    .fab .material-icons{font-size:24px}
+    p.lead{margin:0 0 18px;color:#cbd5e1}
+    .question{margin:16px 0;padding:12px;border-radius:8px;border:1px solid #334155;background:#0f172a}
+    .qtitle{font-weight:600;margin-bottom:8px;color:#f1f5f9}
+    .options{display:flex;gap:8px;flex-wrap:wrap}
+    label.opt{flex:1 1 calc(50% - 8px);background:#334155;padding:8px;border-radius:6px;border:1px solid #475569;cursor:pointer;color:#e2e8f0;transition:background-color 0.2s}
+    label.opt:hover{background:#475569}
+    input[type=radio]{margin-right:8px;accent-color:#0ea5a4}
+    .small{font-size:13px;color:#94a3b8}
+    .actions{display:flex;gap:8px;align-items:center;margin-top:18px}
+    button{background:#0ea5a4;border:none;color:white;padding:10px 14px;border-radius:8px;cursor:pointer;transition:background-color 0.2s}
+    button:hover{background:#0d9488}
+    button.secondary{background:#64748b}
+    button.secondary:hover{background:#475569}
+    .result{margin-top:18px;padding:14px;border-radius:10px;border:1px solid #475569;background:#1e293b}
+    .score{font-weight:700;font-size:18px;color:#f8fafc}
+    footer{margin-top:18px;font-size:13px;color:#94a3b8}
+    hr{border:none;border-top:1px solid #475569;margin:12px 0}
+    ul{color:#cbd5e1}
+    @media(max-width:520px){label.opt{flex:1 1 100%}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="navbar">
+      <h1>Quiz: ¿Alondra o Búho? by <a href="https://github.com/Jvrmmora" target="_blank" rel="noopener noreferrer">jamomodev</a></h1>
+    </div>
+    <p class="lead">Responde según cómo te sientes <strong>habitualmente</strong> (no solo en días puntuales). El resultado sugiere tu cronotipo: alondra (matutina), búho (vespertina) o intermedio.</p>
+
+    <form id="quiz">
+
+      <!-- Each question scores 0..3; higher = more eveningness (búho) -->
+
+      <div class="question">
+        <div class="qtitle">1. ¿A qué hora preferirías despertarte en un día libre?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q1" value="0" required> Muy temprano (antes de las 6:30)</label>
+          <label class="opt"><input type="radio" name="q1" value="1"> Entre 6:30 y 8:00</label>
+          <label class="opt"><input type="radio" name="q1" value="2"> Entre 8:00 y 10:00</label>
+          <label class="opt"><input type="radio" name="q1" value="3"> Después de las 10:00</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">2. ¿A qué hora te sientes con más energía y concentración?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q2" value="0"> Muy temprano en la mañana</label>
+          <label class="opt"><input type="radio" name="q2" value="1"> Mañana</label>
+          <label class="opt"><input type="radio" name="q2" value="2"> Tarde</label>
+          <label class="opt"><input type="radio" name="q2" value="3"> Noche/medianoche</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">3. ¿Si pudieras elegir, a qué hora preferirías empezar tu jornada laboral?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q3" value="0"> Antes de las 7:30</label>
+          <label class="opt"><input type="radio" name="q3" value="1"> Entre 7:30 y 9:30</label>
+          <label class="opt"><input type="radio" name="q3" value="2"> Entre 9:30 y 11:30</label>
+          <label class="opt"><input type="radio" name="q3" value="3"> Después de las 11:30</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">4. ¿Cómo te sientes si tienes que levantarme muy temprano (por ejemplo 5:30 a.m.)?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q4" value="0"> Me adapto y rindo bien</label>
+          <label class="opt"><input type="radio" name="q4" value="1"> Me cuesta un poco pero funciono</label>
+          <label class="opt"><input type="radio" name="q4" value="2"> Me cuesta mucho y rindo poco</label>
+          <label class="opt"><input type="radio" name="q4" value="3"> Imposible rendir así</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">5. ¿A qué hora tiendes a acostarte si no tienes compromisos al día siguiente?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q5" value="0"> Antes de las 22:30</label>
+          <label class="opt"><input type="radio" name="q5" value="1"> Entre 22:30 y 00:00</label>
+          <label class="opt"><input type="radio" name="q5" value="2"> Entre 00:00 y 1:30</label>
+          <label class="opt"><input type="radio" name="q5" value="3"> Después de la 1:30</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">6. ¿Con qué frecuencia te sientes más creativo o con mejores ideas por la noche?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q6" value="0"> Casi nunca</label>
+          <label class="opt"><input type="radio" name="q6" value="1"> A veces</label>
+          <label class="opt"><input type="radio" name="q6" value="2"> Frecuente</label>
+          <label class="opt"><input type="radio" name="q6" value="3"> Casi siempre</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">7. Si tienes que dar una presentación o examen, ¿en qué momento del día te sientes más confiado?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q7" value="0"> Primera hora de la mañana</label>
+          <label class="opt"><input type="radio" name="q7" value="1"> Media mañana</label>
+          <label class="opt"><input type="radio" name="q7" value="2"> Tarde</label>
+          <label class="opt"><input type="radio" name="q7" value="3"> Noche</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">8. ¿A qué hora te despiertas de forma natural sin alarma en un día libre?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q8" value="0"> Muy temprano (antes de 6:00)</label>
+          <label class="opt"><input type="radio" name="q8" value="1"> 6:00 - 8:00</label>
+          <label class="opt"><input type="radio" name="q8" value="2"> 8:00 - 10:00</label>
+          <label class="opt"><input type="radio" name="q8" value="3"> Después de 10:00</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">9. ¿Sientes que tu rendimiento cae mucho al final de la tarde?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q9" value="0"> No, sigo bien</label>
+          <label class="opt"><input type="radio" name="q9" value="1"> Un poco</label>
+          <label class="opt"><input type="radio" name="q9" value="2"> Bastante</label>
+          <label class="opt"><input type="radio" name="q9" value="3"> Sí, mucho</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">10. ¿Cómo describirías tu energía general durante la mañana?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q10" value="0"> Muy alta</label>
+          <label class="opt"><input type="radio" name="q10" value="1"> Moderada</label>
+          <label class="opt"><input type="radio" name="q10" value="2"> Baja</label>
+          <label class="opt"><input type="radio" name="q10" value="3"> Muy baja</label>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="submit">Calcular cronotipo</button>
+        <button type="button" class="secondary" id="resetBtn">Limpiar</button>
+        <div style="margin-left:auto;color:#475569;font-size:13px">Puntaje total: 0 (muy matutino) a 30 (muy vespertino)</div>
+      </div>
+
+    </form>
+
+    <div id="result" class="result" style="display:none"></div>
+
+    <footer>
+      <p>Nota: Este test es orientativo y no reemplaza una evaluación clínica. Muchos factores (edad, trabajo, salud) influyen en el cronotipo.</p>
+    </footer>
+  </div>
+
+  <script>
+    const form = document.getElementById('quiz');
+    const resultBox = document.getElementById('result');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function interpretar(puntos){
+      // 0-30 scale: 0-11 alondra, 12-18 intermedio, 19-30 buho
+      if(puntos <= 11){
+        return {
+          titulo: 'Mayor probabilidad de ser Alondra (matutino)',
+          texto: 'Tiendes a rendir mejor en la mañana y prefieres acostarte y levantarte temprano. Aprovecha tus horas matutinas para tareas que requieran concentración.'
+        };
+      } else if(puntos <= 18){
+        return {
+          titulo: 'Cronotipo Intermedio',
+          texto: 'No te identificas fuertemente con ser alondra ni búho. Puedes adaptarte a distintos horarios, aunque puedes tener variaciones según la rutina o la edad.'
+        };
+      } else {
+        return {
+          titulo: 'Mayor probabilidad de ser Búho (vespertino)',
+          texto: 'Tu pico de energía suele ser en la tarde-noche. Prefieres empezar más tarde y eres más creativo por la noche. Si necesitas madrugar, podrías sentir somnolencia.'
+        };
+      }
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const data = new FormData(form);
+      let total = 0;
+      for(let i=1;i<=10;i++){
+        const val = parseInt(data.get('q'+i));
+        if(isNaN(val)){
+          alert('Por favor responde todas las preguntas');
+          return;
+        }
+        total += val;
+      }
+
+      const interp = interpretar(total);
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = `
+        <div class="score">${interp.titulo} — Puntaje: ${total} / 30</div>
+        <p class="small">${interp.texto}</p>
+        <hr>
+        <div class="small"><strong>Sugerencias prácticas:</strong>
+          <ul>
+            <li>Si eres alondra: prioriza tareas importantes por la mañana y procura mantener horarios regulares.</li>
+            <li>Si eres búho: organiza actividades creativas para la tarde/noche y, si debes madrugar, adapta gradualmente tu horario adelantando 15 min por día.</li>
+            <li>Para todos: expónte a luz natural por la mañana y evita pantallas intensas antes de dormir.</li>
+          </ul>
+        </div>
+        <div style="margin-top:10px">
+          <button id="copyBtn">Copiar resultado</button>
+        </div>
+      `;
+
+      document.getElementById('copyBtn').addEventListener('click', function(){
+        const text = `${interp.titulo} — Puntaje: ${total}/30\n${interp.texto}`;
+        navigator.clipboard.writeText(text).then(()=>{
+          alert('Resultado copiado al portapapeles');
+        }, ()=>{
+          alert('No se pudo copiar automáticamente. Selecciona y copia manualmente.');
+        });
+      });
+    });
+
+    resetBtn.addEventListener('click', function(){
+      form.reset();
+      resultBox.style.display = 'none';
+    });
+
+  </script>
+
+  <!-- Floating Action Button -->
+  <a href="index.html" class="fab" title="Volver al Home">
+    <span class="material-icons">home</span>
+  </a>
+</body>
+</html>

@@ -5,23 +5,35 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Encuesta: Higiene del Sueño</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😴</text></svg>">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
     body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0;background:#0f172a;color:#f1f5f9}
     .wrap{max-width:760px;margin:28px auto;padding:22px;background:#1e293b;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.3)}
     h1{margin:0 0 6px;font-size:20px;color:#f8fafc}
     h1 a{color:#0ea5a4;text-decoration:none;transition:color 0.2s}
     h1 a:hover{color:#0d9488;text-decoration:underline}
+    .navbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding:12px 0;border-bottom:1px solid #334155}
+    .navbar h1{margin:0;font-size:18px;display:flex;align-items:center;gap:8px}
+    .navbar a{color:#f97316;text-decoration:none;padding:8px 16px;border-radius:6px;background:#334155;transition:all 0.2s;font-size:14px;font-weight:500;border:1px solid #f97316;display:flex;align-items:center;gap:6px}
+    .navbar a:hover{background:#f97316;color:#0f172a}
+    .material-icons{font-size:18px}
+    .fab{position:fixed;bottom:20px;right:20px;width:56px;height:56px;border-radius:50%;background:#f97316;color:white;border:none;box-shadow:0 4px 12px rgba(249,115,22,0.4);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s;z-index:1000}
+    .fab:hover{background:#ea580c;transform:scale(1.1);box-shadow:0 6px 16px rgba(249,115,22,0.6)}
+    .fab .material-icons{font-size:24px}
+    .navbar h1 a{color:#0ea5a4;text-decoration:none;padding:0;background:none;border:none;font-size:inherit;font-weight:inherit;transition:color 0.2s}
+    .navbar h1 a:hover{color:#0d9488;text-decoration:underline;background:none}
+    .moon-logo{font-size:20px;color:#fbbf24}
     p.lead{margin:0 0 18px;color:#cbd5e1}
     .question{margin:16px 0;padding:12px;border-radius:8px;border:1px solid #334155;background:#0f172a}
     .qtitle{font-weight:600;margin-bottom:8px;color:#f1f5f9}
     .options{display:flex;gap:8px;flex-wrap:wrap}
     label.opt{flex:1 1 calc(50% - 8px);background:#334155;padding:8px;border-radius:6px;border:1px solid #475569;cursor:pointer;color:#e2e8f0;transition:background-color 0.2s}
     label.opt:hover{background:#475569}
-    input[type=radio]{margin-right:8px;accent-color:#0ea5a4}
+    input[type=radio]{margin-right:8px;accent-color:#f97316}
     .small{font-size:13px;color:#94a3b8}
     .actions{display:flex;gap:8px;align-items:center;margin-top:18px}
-    button{background:#0ea5a4;border:none;color:white;padding:10px 14px;border-radius:8px;cursor:pointer;transition:background-color 0.2s}
-    button:hover{background:#0d9488}
+    button{background:#f97316;border:none;color:white;padding:10px 14px;border-radius:8px;cursor:pointer;transition:background-color 0.2s}
+    button:hover{background:#ea580c}
     button.secondary{background:#64748b}
     button.secondary:hover{background:#475569}
     .result{margin-top:18px;padding:14px;border-radius:10px;border:1px solid #475569;background:#1e293b}
@@ -34,7 +46,9 @@
 </head>
 <body>
   <div class="wrap">
-    <h1>Encuesta: Higiene del Sueño by <a href="https://github.com/Jvrmmora" target="_blank" rel="noopener noreferrer">jamomodev</a></h1>
+    <div class="navbar">
+      <h1><span class="moon-logo">🌙</span>Encuesta: Higiene del Sueño by <a href="https://github.com/Jvrmmora" target="_blank" rel="noopener noreferrer">jamomodev</a></h1>
+    </div>
     <p class="lead">Responde con la opción que mejor se ajuste a tus hábitos en las últimas 2 semanas. Esta encuesta es orientativa y ofrece una puntuación al final con recomendaciones.</p>
 
     <form id="survey">
@@ -230,5 +244,10 @@
     });
 
   </script>
+
+  <!-- Floating Action Button -->
+  <a href="quiz-crono.html" class="fab" title="Quiz Cronotipo">
+    <span class="material-icons">schedule</span>
+  </a>
 </body>
 </html>
