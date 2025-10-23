@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Encuesta: Higiene del Sueño by jamomodev</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0;background:#0f172a;color:#f1f5f9}
+    .wrap{max-width:760px;margin:28px auto;padding:22px;background:#1e293b;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.3)}
+    h1{margin:0 0 6px;font-size:20px;color:#f8fafc}
+    p.lead{margin:0 0 18px;color:#cbd5e1}
+    .question{margin:16px 0;padding:12px;border-radius:8px;border:1px solid #334155;background:#0f172a}
+    .qtitle{font-weight:600;margin-bottom:8px;color:#f1f5f9}
+    .options{display:flex;gap:8px;flex-wrap:wrap}
+    label.opt{flex:1 1 calc(50% - 8px);background:#334155;padding:8px;border-radius:6px;border:1px solid #475569;cursor:pointer;color:#e2e8f0;transition:background-color 0.2s}
+    label.opt:hover{background:#475569}
+    input[type=radio]{margin-right:8px;accent-color:#0ea5a4}
+    .small{font-size:13px;color:#94a3b8}
+    .actions{display:flex;gap:8px;align-items:center;margin-top:18px}
+    button{background:#0ea5a4;border:none;color:white;padding:10px 14px;border-radius:8px;cursor:pointer;transition:background-color 0.2s}
+    button:hover{background:#0d9488}
+    button.secondary{background:#64748b}
+    button.secondary:hover{background:#475569}
+    .result{margin-top:18px;padding:14px;border-radius:10px;border:1px solid #475569;background:#1e293b}
+    .score{font-weight:700;font-size:18px;color:#f8fafc}
+    footer{margin-top:18px;font-size:13px;color:#94a3b8}
+    hr{border:none;border-top:1px solid #475569;margin:12px 0}
+    ul{color:#cbd5e1}
+    @media(max-width:520px){label.opt{flex:1 1 100%}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Encuesta: Higiene del Sueño</h1>
+    <p class="lead">Responde con la opción que mejor se ajuste a tus hábitos en las últimas 2 semanas. Esta encuesta es orientativa y ofrece una puntuación al final con recomendaciones.</p>
+
+    <form id="survey">
+
+      <!-- Questions: each radio group values 0 (mejor) a 3 (peor) -->
+
+      <div class="question">
+        <div class="qtitle">1. ¿Tienes un horario regular para acostarte y despertarte (incluso fines de semana)?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q1" value="0" required> Siempre</label>
+          <label class="opt"><input type="radio" name="q1" value="1"> Casi siempre</label>
+          <label class="opt"><input type="radio" name="q1" value="2"> A veces</label>
+          <label class="opt"><input type="radio" name="q1" value="3"> Nunca</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">2. ¿Evitas consumir cafeína (café, té, bebidas energéticas) en las 6 horas previas a acostarte?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q2" value="0"> Siempre</label>
+          <label class="opt"><input type="radio" name="q2" value="1"> Casi siempre</label>
+          <label class="opt"><input type="radio" name="q2" value="2"> A veces</label>
+          <label class="opt"><input type="radio" name="q2" value="3"> Nunca</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">3. ¿Evitas usar pantallas (celular, tablet, TV) al menos 30 minutos antes de dormir?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q3" value="0"> Siempre</label>
+          <label class="opt"><input type="radio" name="q3" value="1"> Casi siempre</label>
+          <label class="opt"><input type="radio" name="q3" value="2"> A veces</label>
+          <label class="opt"><input type="radio" name="q3" value="3"> Nunca</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">4. ¿Consideras que tu dormitorio es oscuro, tranquilo y con temperatura agradable para dormir?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q4" value="0"> Sí, siempre</label>
+          <label class="opt"><input type="radio" name="q4" value="1"> Casi siempre</label>
+          <label class="opt"><input type="radio" name="q4" value="2"> A veces</label>
+          <label class="opt"><input type="radio" name="q4" value="3"> No</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">5. ¿Usas la cama únicamente para dormir y actividades íntimas (no trabajo ni pantallas)?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q5" value="0"> Sí</label>
+          <label class="opt"><input type="radio" name="q5" value="1"> Casi siempre</label>
+          <label class="opt"><input type="radio" name="q5" value="2"> A veces</label>
+          <label class="opt"><input type="radio" name="q5" value="3"> No, hago otras actividades</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">6. ¿Consumes alcohol en las horas cercanas a la hora de dormir?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q6" value="0"> Nunca</label>
+          <label class="opt"><input type="radio" name="q6" value="1"> Rara vez</label>
+          <label class="opt"><input type="radio" name="q6" value="2"> A veces</label>
+          <label class="opt"><input type="radio" name="q6" value="3"> Frecuentemente</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">7. ¿Te despiertas con frecuencia durante la noche o tienes dificultades para volver a dormir?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q7" value="0"> Casi nunca</label>
+          <label class="opt"><input type="radio" name="q7" value="1"> A veces</label>
+          <label class="opt"><input type="radio" name="q7" value="2"> Frecuente</label>
+          <label class="opt"><input type="radio" name="q7" value="3"> Muy frecuente</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">8. ¿Duermes un promedio de 7-9 horas por noche?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q8" value="0"> Sí, regularmente</label>
+          <label class="opt"><input type="radio" name="q8" value="1"> Casi siempre</label>
+          <label class="opt"><input type="radio" name="q8" value="2"> A veces</label>
+          <label class="opt"><input type="radio" name="q8" value="3"> Rara vez o nunca</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">9. ¿Te expones a luz natural durante el día (al menos 20 minutos)?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q9" value="0"> Sí, todos los días</label>
+          <label class="opt"><input type="radio" name="q9" value="1"> Casi todos los días</label>
+          <label class="opt"><input type="radio" name="q9" value="2"> A veces</label>
+          <label class="opt"><input type="radio" name="q9" value="3"> Casi nunca</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="qtitle">10. Si te cuesta dormir, ¿intentaste levantarte y realizar una actividad tranquila antes de volver a la cama (en lugar de mirar el reloj o el móvil)?</div>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q10" value="0"> Sí, siempre</label>
+          <label class="opt"><input type="radio" name="q10" value="1"> A veces</label>
+          <label class="opt"><input type="radio" name="q10" value="2"> Rara vez</label>
+          <label class="opt"><input type="radio" name="q10" value="3"> Nunca</label>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="submit">Calcular resultado</button>
+        <button type="button" class="secondary" id="resetBtn">Limpiar</button>
+        <div style="margin-left:auto;color:#475569;font-size:13px">Puntaje máximo: 30 (mejor higiene = menor puntaje)</div>
+      </div>
+
+    </form>
+
+    <div id="result" class="result" style="display:none"></div>
+
+    <footer>
+      <p>Nota: Esta encuesta es orientativa y no sustituye la opinión médica. Si sospechas de un trastorno del sueño (apnea, insomnio severo, somnolencia diurna excesiva), consulta con un especialista.</p>
+    </footer>
+  </div>
+
+  <script>
+    const form = document.getElementById('survey');
+    const resultBox = document.getElementById('result');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function interpretar(puntos){
+      // puntuación: 0 (óptimo) a 30 (malo)
+      if(puntos <= 9){
+        return {
+          titulo: 'Buena higiene del sueño',
+          texto: 'Tu puntuación indica hábitos saludables relacionados con el sueño. ¡Buen trabajo! Mantén tus rutinas y considera pequeñas mejoras si lo deseas.'
+        };
+      } else if(puntos <= 18){
+        return {
+          titulo: 'Higiene del sueño moderada',
+          texto: 'Tienes algunos hábitos correctos, pero hay áreas que podrías mejorar (por ejemplo: regular horarios, reducir pantallas o evitar cafeína en la tarde). Intenta introducir un cambio a la vez.'
+        };
+      } else {
+        return {
+          titulo: 'Higiene del sueño deficiente',
+          texto: 'Tu resultado sugiere que varios hábitos podrían estar afectando tu sueño. Considera revisar la higiene del sueño y, si persisten problemas, consultar con un profesional.'
+        };
+      }
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const data = new FormData(form);
+      let total = 0;
+      for(let i=1;i<=10;i++){
+        const val = parseInt(data.get('q'+i));
+        if(isNaN(val)){
+          alert('Por favor responde todas las preguntas');
+          return;
+        }
+        total += val;
+      }
+
+      const interp = interpretar(total);
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = `
+        <div class="score">${interp.titulo} — Puntaje: ${total} / 30</div>
+        <p class="small">${interp.texto}</p>
+        <hr>
+        <div class="small"><strong>Recomendaciones rápidas:</strong>
+          <ul>
+            <li>Mantén horarios regulares: acuéstate y levántate a la misma hora.</li>
+            <li>Evita pantallas 30-60 min antes de dormir; usa 'modo noche' si es necesario.</li>
+            <li>Reduce cafeína después del mediodía y limita el alcohol antes de dormir.</li>
+            <li>Haz ejercicio durante el día y exposición a luz natural por la mañana.</li>
+            <li>Si no duermes, levántate y realiza una actividad tranquila hasta que tengas sueño.</li>
+          </ul>
+        </div>
+        <div style="margin-top:10px">
+          <button id="copyBtn">Copiar resultado</button>
+        </div>
+      `;
+
+      document.getElementById('copyBtn').addEventListener('click', function(){
+        const text = `${interp.titulo} — Puntaje: ${total}/30\n${interp.texto}`;
+        navigator.clipboard.writeText(text).then(()=>{
+          alert('Resultado copiado al portapapeles');
+        }, ()=>{
+          alert('No se pudo copiar automáticamente. Selecciona y copia manualmente.');
+        });
+      });
+    });
+
+    resetBtn.addEventListener('click', function(){
+      form.reset();
+      resultBox.style.display = 'none';
+    });
+
+  </script>
+</body>
+</html>
